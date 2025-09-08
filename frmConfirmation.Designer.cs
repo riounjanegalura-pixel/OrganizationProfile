@@ -203,9 +203,9 @@
             this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSubmit.Location = new System.Drawing.Point(230, 401);
+            this.btnSubmit.Location = new System.Drawing.Point(234, 391);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(104, 37);
+            this.btnSubmit.Size = new System.Drawing.Size(113, 47);
             this.btnSubmit.TabIndex = 15;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;

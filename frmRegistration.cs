@@ -35,64 +35,173 @@ namespace OrganizationProfile
               "BS in Tourism Management"
             };
 
-
-            for (int i = 0; i < 6; i++)
+            //new code
+            foreach (string program in ListOfProgram)
             {
-                cbPrograms.Items.Add(ListOfProgram[i].ToString());
+                cbPrograms.Items.Add(program);
             }
+
+            /* for (int i = 0; i < 6; i++)
+             {
+                 cbPrograms.Items.Add(ListOfProgram[i].ToString());
+             } */
         }
 
         public long StudentNumber(string studNum)
         {
-
-            _StudentNo = long.Parse(studNum);
-
+            //new code
+            try
+            {
+                _StudentNo = long.Parse(studNum);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Student Number is not a valid number.");
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException("Student Number is too large.");
+            }
+            finally
+            {
+                Console.WriteLine("Student Number validation attempted.");
+            }
             return _StudentNo;
+            /* _StudentNo = long.Parse(studNum);
+
+             return _StudentNo; */
         }
 
         public long ContactNo(string Contact)
         {
-            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            //new code
+            try
+            {
+                if (!Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+                {
+                    throw new FormatException("Contact number must contain 10-11 digits only.");
+                }
+                _ContactNo = long.Parse(Contact);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Contact number is not a valid number.");
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException("Contact number is too large.");
+            }
+            finally
+            {
+                Console.WriteLine("Contact Number validation attempted.");
+            }
+            return _ContactNo;
+            /*if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
             {
                 _ContactNo = long.Parse(Contact);
             }
 
-            return _ContactNo;
+            return _ContactNo;*/
         }
 
         public string FullName(string LastName, string FirstName, string MiddleInitial)
         {
-            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            //new code
+            try
+            {
+                if (!Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || !Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || !Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+                {
+                    throw new FormatException("Full Name must contain only letters.");
+                }
+                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Full Name format is incorrect.");
+            }
+            finally
+            {
+                Console.WriteLine("Full Name validation attempted.");
+            }
+            return _FullName;
+            /*if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
             {
                 _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
             }
 
-            return _FullName;
+            return _FullName;*/
         }
 
         public int Age(string age)
         {
-            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            //new code
+            try
+            {
+                if (!Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+                {
+                    throw new FormatException("Age must contain only digits.");
+                }
+                _Age = Int32.Parse(age);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Age is not a valid number.");
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException("Age value is too large.");
+            }
+            finally
+            {
+                Console.WriteLine("Age validation attempted.");
+            }
+            return _Age;
+            /*if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
             {
                 _Age = Int32.Parse(age);
             }
 
-            return _Age;
+            return _Age;*/
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            StudentInformationClass.SetFullName = FullName(txtLastName.Text,
-            txtFirstName.Text, txtMiddleInitial.Text);
-            StudentInformationClass.SetStudentNo = (int)StudentNumber(txtStudentNo.Text);
-            StudentInformationClass.SetProgram = cbPrograms.Text;
-            StudentInformationClass.SetGender = cbGender.Text;
-            StudentInformationClass.SetContactNo = (long)ContactNo(txtContactNo.Text);
-            StudentInformationClass.SetAge = Age(txtAge.Text);
-            StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
+            //new code
+            try
+            {
+                StudentInformationClass.SetFullName = FullName(txtLastName.Text,
+                txtFirstName.Text, txtMiddleInitial.Text);
+                StudentInformationClass.SetStudentNo = StudentNumber(txtStudentNo.Text);
+                StudentInformationClass.SetProgram = cbPrograms.Text;
+                StudentInformationClass.SetGender = cbGender.Text;
+                StudentInformationClass.SetContactNo = ContactNo(txtContactNo.Text);
+                StudentInformationClass.SetAge = Age(txtAge.Text);
+                StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
 
-            frmConfirmation frm = new frmConfirmation();
-            frm.ShowDialog();
+                frmConfirmation frm = new frmConfirmation();
+                frm.ShowDialog();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show(ex.Message, "Input too large", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid Index", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Console.WriteLine("Registration process finished.");
+            }
         }
+
     }
 }

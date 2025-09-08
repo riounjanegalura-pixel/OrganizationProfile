@@ -77,7 +77,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(364, 109);
+            this.label3.Location = new System.Drawing.Point(364, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 2;
@@ -155,50 +155,44 @@
             // 
             // txtStudentNo
             // 
-            this.txtStudentNo.Location = new System.Drawing.Point(117, 99);
-            this.txtStudentNo.Multiline = true;
+            this.txtStudentNo.Location = new System.Drawing.Point(117, 110);
             this.txtStudentNo.Name = "txtStudentNo";
-            this.txtStudentNo.Size = new System.Drawing.Size(226, 33);
+            this.txtStudentNo.Size = new System.Drawing.Size(226, 22);
             this.txtStudentNo.TabIndex = 10;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(117, 159);
-            this.txtLastName.Multiline = true;
+            this.txtLastName.Location = new System.Drawing.Point(117, 168);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(226, 31);
+            this.txtLastName.Size = new System.Drawing.Size(226, 22);
             this.txtLastName.TabIndex = 11;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(455, 159);
-            this.txtFirstName.Multiline = true;
+            this.txtFirstName.Location = new System.Drawing.Point(455, 168);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(235, 34);
+            this.txtFirstName.Size = new System.Drawing.Size(235, 22);
             this.txtFirstName.TabIndex = 12;
             // 
             // txtMiddleInitial
             // 
-            this.txtMiddleInitial.Location = new System.Drawing.Point(740, 156);
-            this.txtMiddleInitial.Multiline = true;
+            this.txtMiddleInitial.Location = new System.Drawing.Point(740, 168);
             this.txtMiddleInitial.Name = "txtMiddleInitial";
-            this.txtMiddleInitial.Size = new System.Drawing.Size(58, 34);
+            this.txtMiddleInitial.Size = new System.Drawing.Size(58, 22);
             this.txtMiddleInitial.TabIndex = 13;
             // 
             // txtAge
             // 
             this.txtAge.Location = new System.Drawing.Point(117, 216);
-            this.txtAge.Multiline = true;
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(78, 29);
+            this.txtAge.Size = new System.Drawing.Size(78, 22);
             this.txtAge.TabIndex = 14;
             // 
             // txtContactNo
             // 
-            this.txtContactNo.Location = new System.Drawing.Point(455, 272);
-            this.txtContactNo.Multiline = true;
+            this.txtContactNo.Location = new System.Drawing.Point(458, 284);
             this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(177, 34);
+            this.txtContactNo.Size = new System.Drawing.Size(177, 22);
             this.txtContactNo.TabIndex = 15;
             // 
             // cbPrograms
@@ -212,6 +206,9 @@
             // cbGender
             // 
             this.cbGender.FormattingEnabled = true;
+            this.cbGender.Items.AddRange(new object[] {
+            "Female",
+            "Male"});
             this.cbGender.Location = new System.Drawing.Point(455, 221);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(78, 24);
@@ -220,9 +217,12 @@
             // datePickerBirthday
             // 
             this.datePickerBirthday.Location = new System.Drawing.Point(117, 284);
+            this.datePickerBirthday.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.datePickerBirthday.MinDate = new System.DateTime(1783, 1, 1, 0, 0, 0, 0);
             this.datePickerBirthday.Name = "datePickerBirthday";
             this.datePickerBirthday.Size = new System.Drawing.Size(226, 22);
             this.datePickerBirthday.TabIndex = 18;
+            this.datePickerBirthday.Value = new System.DateTime(2005, 5, 7, 0, 0, 0, 0);
             // 
             // btnRegister
             // 
@@ -232,7 +232,7 @@
             this.btnRegister.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.btnRegister.Location = new System.Drawing.Point(302, 367);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(123, 37);
+            this.btnRegister.Size = new System.Drawing.Size(128, 48);
             this.btnRegister.TabIndex = 19;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;

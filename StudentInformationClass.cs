@@ -15,14 +15,5 @@ namespace OrganizationProfile
         public static string SetBirthday = "   ";
         public static string SetFullName = "   ";
         public static int SetAge = 0;
-
-
-        /*blic static int SetStudentNo = 0;
-        public static int SetContactNo = 0;
-
-        public static String SetProgram = "   ";
-        public static String SetGender = "   ";
-        public static String SetBirthday = "   ";
-        public static String SetFullName = "   ";*/
     }
 }
