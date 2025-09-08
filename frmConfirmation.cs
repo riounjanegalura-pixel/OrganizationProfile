@@ -27,19 +27,9 @@ namespace OrganizationProfile
             lblContactNo.Text = StudentInformationClass.SetContactNo.ToString();
             lblAge.Text = StudentInformationClass.SetAge.ToString();
 
+            frmConfirmation frm = new frmConfirmation();
 
-            /*StudentInformationClass.SetFullName = FullName(lblName.Text);
-            StudentInformationClass.SetStudentNo = StudentNumber(lblStudentNo.Text);
-            StudentInformationClass.SetProgram = cbPrograms.Text;
-
-            StudentInformationClass.SetGender = cbGender.Text;
-            StudentInformationClass.SetContactNo = ContactNo(lblContactNo.Text);
-            StudentInformationClass.SetAge = Age(lblAge.Text);
-            StudentInformationClass.SetBirthDay = datePickerBirthday.Value.ToString("yyyyMM-dd");
-
-            frmConfirm frm = new frmConfirm();
-
-            frm.ShowDialog();*/
+            frm.ShowDialog();
         }
 
         private void frmConfirmation_Load(object sender, EventArgs e)

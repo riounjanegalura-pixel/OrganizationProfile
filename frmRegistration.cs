@@ -79,5 +79,20 @@ namespace OrganizationProfile
 
             return _Age;
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            StudentInformationClass.SetFullName = FullName(txtLastName.Text,
+            txtFirstName.Text, txtMiddleInitial.Text);
+            StudentInformationClass.SetStudentNo = (int)StudentNumber(txtStudentNo.Text);
+            StudentInformationClass.SetProgram = cbPrograms.Text;
+            StudentInformationClass.SetGender = cbGender.Text;
+            StudentInformationClass.SetContactNo = (long)ContactNo(txtContactNo.Text);
+            StudentInformationClass.SetAge = Age(txtAge.Text);
+            StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
+
+            frmConfirmation frm = new frmConfirmation();
+            frm.ShowDialog();
+        }
     }
 }
