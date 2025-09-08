@@ -187,10 +187,10 @@
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(117, 221);
+            this.txtAge.Location = new System.Drawing.Point(117, 216);
             this.txtAge.Multiline = true;
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(78, 24);
+            this.txtAge.Size = new System.Drawing.Size(78, 29);
             this.txtAge.TabIndex = 14;
             // 
             // txtContactNo
