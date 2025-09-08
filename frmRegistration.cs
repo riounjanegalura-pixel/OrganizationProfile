@@ -12,6 +12,10 @@ namespace OrganizationProfile
 {
     public partial class frmRegistration: Form
     {
+        private String _FullName;
+        private int _Age;
+        private long _ContactNo; 
+        private long _StudentNo;
         public frmRegistration()
         {
             InitializeComponent();
